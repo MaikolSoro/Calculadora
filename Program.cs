@@ -12,7 +12,7 @@ namespace Calculadora
         static void Main(string[] args)
 
         {
-
+            // ejemplo
             Console.Title = "Mini Calculadora - Maikol"; 
             string resp = "";
 
