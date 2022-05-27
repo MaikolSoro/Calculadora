@@ -8,19 +8,29 @@ namespace Calculadora
 {
     internal class Operaciones
     {
+
         double POT = 1.0 / 3.0;
+
+
+       
 
         /// <summary>
         /// Suma dos numeros
         /// </summary>
         /// <param name="n1" name="n2"></param>
         /// <returns>resultado de la suma numero entero</returns>
-
         internal int Sumar(int n1, int n2)
         {
+
             return n1 + n2;
         }
+        public int registraSuma(int n1, int n2)
+        {
+            int result = n1 + n2;
+         //   DB().Registrar(Ruta(NodePadre(), n1, n2);
+            return result;
 
+        }
         /// <summary>
         /// Resta dos numeros
         /// </summary>

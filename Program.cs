@@ -1,15 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Calculadora
 {
     internal class Program
     {
-       
-        static void Main(string[] args)
+        // Crea el archivo con la suma de los numeros
+        static void crear(int n1, int n2, int res) {
+         StreamWriter escribir = new StreamWriter(@"C:\\Calculadora\\Suma.txt", true);
+            try
+            {
+                escribir.WriteLine(n1 + " + "+ n2 + "=" + res);
+          
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e + "PASO ALGO");
+            }
+            escribir.Close();
+      }
+    static void Main(string[] args)
 
         {
             string menu = "\nMenu Calculadora \n" +
@@ -31,7 +46,7 @@ namespace Calculadora
                 Console.Clear();
                 Console.Write(menu);
                 int op = Int32.Parse(Console.ReadLine());
-               
+
 
                 switch (op)
                 {
@@ -46,14 +61,16 @@ namespace Calculadora
 
                         int res = ope.Sumar(numero1, numero2);
                         Console.WriteLine("{0}+{1}={2}", numero1, numero2, res);
+
+                        crear(numero1, numero2, res);
                         break;
                     case 2:
                         Console.Write("Numero 1: ");
-                         numero1 = int.Parse(Console.ReadLine());
+                        numero1 = int.Parse(Console.ReadLine());
 
                         Console.Write("Numero 2: ");
 
-                         numero2 = int.Parse(Console.ReadLine());
+                        numero2 = int.Parse(Console.ReadLine());
                         Console.WriteLine();
 
                         res = ope.Restar(numero1, numero2);
@@ -61,11 +78,11 @@ namespace Calculadora
                         break;
                     case 3:
                         Console.Write("Numero 1: ");
-                         numero1 = int.Parse(Console.ReadLine());
+                        numero1 = int.Parse(Console.ReadLine());
 
                         Console.Write("Numero 2: ");
 
-                         numero2 = int.Parse(Console.ReadLine());
+                        numero2 = int.Parse(Console.ReadLine());
                         Console.WriteLine();
 
                         res = ope.Multiplicar(numero1, numero2);
@@ -73,11 +90,11 @@ namespace Calculadora
                         break;
                     case 4:
                         Console.Write("Numero 1: ");
-                         numero1 = int.Parse(Console.ReadLine());
+                        numero1 = int.Parse(Console.ReadLine());
 
                         Console.Write("Numero 2: ");
 
-                         numero2 = int.Parse(Console.ReadLine());
+                        numero2 = int.Parse(Console.ReadLine());
                         Console.WriteLine();
 
                         res = ope.Dividir(numero1, numero2);
@@ -93,7 +110,7 @@ namespace Calculadora
                         double num2 = Double.Parse(Console.ReadLine());
                         Console.WriteLine();
 
-                       double result = ope.Potencia(num1, num2);
+                        double result = ope.Potencia(num1, num2);
                         Console.WriteLine("{0}/{1}={2}", num1, num2, result);
                         break;
                     case 6:
@@ -106,9 +123,9 @@ namespace Calculadora
 
                     case 7:
                         Console.Write("Numero 1: ");
-                         num1 = Double.Parse(Console.ReadLine());
+                        num1 = Double.Parse(Console.ReadLine());
 
-                         result = ope.RaizCubica(num1);
+                        result = ope.RaizCubica(num1);
                         Console.WriteLine("{0} = {1}", num1, result);
                         break;
 
@@ -128,9 +145,12 @@ namespace Calculadora
 
 
     }
+
 }
 
 
 
 
-    
+
+
+
